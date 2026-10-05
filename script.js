@@ -1,10 +1,9 @@
-//your code here!
-
 const list = document.getElementById("list");
 
 let itemCount = 0;
 
 
+// Function to add items
 function addItems(count) {
 
     for (let i = 0; i < count; i++) {
@@ -20,19 +19,19 @@ function addItems(count) {
 }
 
 
+// Add 10 items initially
 addItems(10);
 
 
+// Detect when user reaches the bottom
+const container = document.getElementById("list-container");
 
-list.addEventListener("scroll", function () {
+container.addEventListener("scroll", function () {
 
-    const reachedBottom =
-        list.scrollTop + list.clientHeight >= list.scrollHeight - 5;
+    if (container.scrollTop + container.clientHeight >= container.scrollHeight - 5) {
 
-    if (reachedBottom) {
-
-        // Add 2 more items
         addItems(2);
+
     }
 
 });
